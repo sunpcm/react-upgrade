@@ -36,21 +36,21 @@ module.exports = [
     },
   },
 
-  // Override for React 17 apps (如果创建了)
-  // {
-  //   files: ["apps/react17-app/**/*.{ts,tsx,js,jsx}"],
-  //   settings: {
-  //     react: {
-  //       version: "17.0",
-  //     },
-  //   },
-  //   rules: {
-  //     // React 17+ 支持新的 JSX 转换，可以不导入 React
-  //     "react/react-in-jsx-scope": "off",
-  //     // 如果使用了旧 API，提示警告
-  //     "react/no-deprecated": "warn",
-  //   },
-  // },
+  // Override for React 17 app
+  {
+    files: ["apps/react17/**/*.{ts,tsx,js,jsx}"],
+    settings: {
+      react: {
+        version: "17.0",
+      },
+    },
+    rules: {
+      // React 17+ 支持新的 JSX 转换，可以不导入 React
+      "react/react-in-jsx-scope": "off",
+      // ReactDOM.render 在 React 17 中仍然是正确的 API
+      "react/no-deprecated": "off",
+    },
+  },
 
   // Override for React 18 apps (如果创建了)
   // {
