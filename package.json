@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "turbo dev",
-    "dev:vite": "turbo dev --filter=vite-app",
-    "dev:webpack": "turbo dev --filter=webpack-app",
+    "dev:react168": "turbo dev --filter=react168",
+    "dev:react17": "turbo dev --filter=react17",
+    "dev:react18": "turbo dev --filter=react18",
+    "dev:react19": "turbo dev --filter=react19",
     "build": "turbo build",
     "build:analyze:vite": "cross-env ANALYZE=true turbo build --filter=vite-app",
     "build:analyze:webpack": "cross-env ANALYZE=true SOURCE_MAP=true turbo build --filter=webpack-app",

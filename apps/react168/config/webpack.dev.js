@@ -13,7 +13,7 @@ const cfg = merge(common, {
   // 这是一个基于 Express 的小型服务器，把资源跑在内存里
   devServer: {
     static: path.resolve(__dirname, "../public"), // 静态文件目录
-    port: 3000,
+    port: "auto", // 自动选择可用端口（如果 3000 被占用，会自动尝试 3001, 3002...）
     hot: true, // 开启热模块替换 (HMR)
     open: true, // 启动后自动打开浏览器
     compress: true, // 开启 gzip 压缩
