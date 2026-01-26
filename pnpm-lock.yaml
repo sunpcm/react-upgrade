@@ -449,6 +449,133 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
 
+  apps/react19:
+    dependencies:
+      "@babel/runtime":
+        specifier: ^7.28.6
+        version: 7.28.6
+      "@biu/postcss-config":
+        specifier: workspace:*
+        version: link:../../packages/configs/postcss-config
+      "@biu/tailwind-config":
+        specifier: workspace:*
+        version: link:../../packages/configs/tailwind-config
+      "@biu/tsconfig":
+        specifier: workspace:*
+        version: link:../../packages/configs/tsconfig
+      react:
+        specifier: ^19.0.0
+        version: 19.2.3
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.2.3(react@19.2.3)
+    devDependencies:
+      "@babel/core":
+        specifier: ^7.28.5
+        version: 7.28.6
+      "@babel/plugin-transform-runtime":
+        specifier: ^7.28.5
+        version: 7.28.5(@babel/core@7.28.6)
+      "@babel/preset-env":
+        specifier: ^7.28.5
+        version: 7.28.6(@babel/core@7.28.6)
+      "@babel/preset-react":
+        specifier: ^7.28.5
+        version: 7.28.5(@babel/core@7.28.6)
+      "@babel/preset-typescript":
+        specifier: ^7.28.5
+        version: 7.28.5(@babel/core@7.28.6)
+      "@pmmmwh/react-refresh-webpack-plugin":
+        specifier: ^0.6.2
+        version: 0.6.2(react-refresh@0.18.0)(type-fest@0.21.3)(webpack-dev-server@5.2.3)(webpack@5.104.1)
+      "@svgr/webpack":
+        specifier: ^8.1.0
+        version: 8.1.0(typescript@5.9.3)
+      "@tailwindcss/postcss":
+        specifier: "catalog:"
+        version: 4.1.18
+      "@types/node":
+        specifier: "catalog:"
+        version: 25.0.9
+      "@types/react":
+        specifier: ^19.0.2
+        version: 19.2.9
+      "@types/react-dom":
+        specifier: ^19.0.2
+        version: 19.2.3(@types/react@19.2.9)
+      autoprefixer:
+        specifier: "catalog:"
+        version: 10.4.23(postcss@8.5.6)
+      babel-loader:
+        specifier: ^10.0.0
+        version: 10.0.0(@babel/core@7.28.6)(webpack@5.104.1)
+      cross-env:
+        specifier: ^10.1.0
+        version: 10.1.0
+      css-loader:
+        specifier: ^7.1.2
+        version: 7.1.2(webpack@5.104.1)
+      css-minimizer-webpack-plugin:
+        specifier: ^7.0.4
+        version: 7.0.4(webpack@5.104.1)
+      dotenv-webpack:
+        specifier: ^8.1.1
+        version: 8.1.1(webpack@5.104.1)
+      eslint:
+        specifier: "catalog:"
+        version: 9.39.2(jiti@2.6.1)
+      fork-ts-checker-webpack-plugin:
+        specifier: ^9.1.0
+        version: 9.1.0(typescript@5.9.3)(webpack@5.104.1)
+      html-webpack-plugin:
+        specifier: ^5.6.5
+        version: 5.6.5(webpack@5.104.1)
+      mini-css-extract-plugin:
+        specifier: ^2.9.4
+        version: 2.9.4(webpack@5.104.1)
+      postcss:
+        specifier: "catalog:"
+        version: 8.5.6
+      postcss-loader:
+        specifier: ^8.2.0
+        version: 8.2.0(postcss@8.5.6)(typescript@5.9.3)(webpack@5.104.1)
+      postcss-nesting:
+        specifier: ^14.0.0
+        version: 14.0.0(postcss@8.5.6)
+      react-refresh:
+        specifier: ^0.18.0
+        version: 0.18.0
+      speed-measure-webpack-plugin:
+        specifier: ^1.5.0
+        version: 1.5.0(webpack@5.104.1)
+      style-loader:
+        specifier: ^4.0.0
+        version: 4.0.0(webpack@5.104.1)
+      tailwindcss:
+        specifier: "catalog:"
+        version: 4.1.18
+      terser-webpack-plugin:
+        specifier: ^5.3.16
+        version: 5.3.16(webpack@5.104.1)
+      typescript:
+        specifier: "catalog:"
+        version: 5.9.3
+      webpack:
+        specifier: ^5.104.1
+        version: 5.104.1(webpack-cli@6.0.1)
+      webpack-bundle-analyzer:
+        specifier: ^5.1.0
+        version: 5.1.1
+      webpack-cli:
+        specifier: ^6.0.1
+        version: 6.0.1(webpack-bundle-analyzer@5.1.1)(webpack-dev-server@5.2.3)(webpack@5.104.1)
+      webpack-dev-server:
+        specifier: ^5.2.3
+        version: 5.2.3(webpack-cli@6.0.1)(webpack@5.104.1)
+      webpack-merge:
+        specifier: ^6.0.1
+        version: 6.0.1
+
   packages/configs/eslint-config:
     dependencies:
       "@eslint/js":
@@ -2369,6 +2496,14 @@ packages:
     peerDependencies:
       "@types/react": ^18.0.0
 
+  "@types/react-dom@19.2.3":
+    resolution:
+      {
+        integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==,
+      }
+    peerDependencies:
+      "@types/react": ^19.2.0
+
   "@types/react@16.14.68":
     resolution:
       {
@@ -2385,6 +2520,12 @@ packages:
     resolution:
       {
         integrity: sha512-cisd7gxkzjBKU2GgdYrTdtQx1SORymWyaAFhaxQPK9bYO9ot3Y5OikQRvY0VYQtvwjeQnizCINJAenh/V7MK2w==,
+      }
+
+  "@types/react@19.2.9":
+    resolution:
+      {
+        integrity: sha512-Lpo8kgb/igvMIPeNV2rsYKTgaORYdO1XGVZ4Qz3akwOj0ySGYMPlQWa8BaLn0G63D1aSaAQ5ldR06wCpChQCjA==,
       }
 
   "@types/retry@0.12.2":
@@ -6816,6 +6957,14 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-dom@19.2.3:
+    resolution:
+      {
+        integrity: sha512-yELu4WmLPw5Mr/lmeEpox5rw3RETacE++JgHqQzd2dg+YbJuat3jH4ingc+WPZhxaoFzdv9y33G+F7Nl5O0GBg==,
+      }
+    peerDependencies:
+      react: ^19.2.3
+
   react-is@16.13.1:
     resolution:
       {
@@ -6847,6 +6996,13 @@ packages:
     resolution:
       {
         integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==,
+      }
+    engines: { node: ">=0.10.0" }
+
+  react@19.2.3:
+    resolution:
+      {
+        integrity: sha512-Ku/hhYbVjOQnXDZFv2+RibmLFGwFdeeKHFcOTlrt7xplBnya5OGn/hIRDsqDiSUcfORsDC7MPxwork8jBwsIWA==,
       }
     engines: { node: ">=0.10.0" }
 
@@ -7143,6 +7299,12 @@ packages:
     resolution:
       {
         integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==,
+      }
+
+  scheduler@0.27.0:
+    resolution:
+      {
+        integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==,
       }
 
   schema-utils@3.3.0:
@@ -9705,6 +9867,10 @@ snapshots:
     dependencies:
       "@types/react": 18.3.27
 
+  "@types/react-dom@19.2.3(@types/react@19.2.9)":
+    dependencies:
+      "@types/react": 19.2.9
+
   "@types/react@16.14.68":
     dependencies:
       "@types/prop-types": 15.7.15
@@ -9720,6 +9886,10 @@ snapshots:
   "@types/react@18.3.27":
     dependencies:
       "@types/prop-types": 15.7.15
+      csstype: 3.2.3
+
+  "@types/react@19.2.9":
+    dependencies:
       csstype: 3.2.3
 
   "@types/retry@0.12.2": {}
@@ -12456,6 +12626,11 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-dom@19.2.3(react@19.2.3):
+    dependencies:
+      react: 19.2.3
+      scheduler: 0.27.0
+
   react-is@16.13.1: {}
 
   react-refresh@0.18.0: {}
@@ -12474,6 +12649,8 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
+
+  react@19.2.3: {}
 
   read-yaml-file@1.1.0:
     dependencies:
@@ -12663,6 +12840,8 @@ snapshots:
   scheduler@0.23.2:
     dependencies:
       loose-envify: 1.4.0
+
+  scheduler@0.27.0: {}
 
   schema-utils@3.3.0:
     dependencies:

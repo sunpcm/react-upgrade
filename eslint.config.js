@@ -67,17 +67,18 @@ module.exports = [
     },
   },
 
-  // Override for React 19 apps (如果创建了)
-  // {
-  //   files: ["apps/react19/**/*.{ts,tsx,js,jsx}"],
-  //   settings: {
-  //     react: {
-  //       version: "19.0",
-  //     },
-  //   },
-  //   rules: {
-  //     "react/react-in-jsx-scope": "off",
-  //     "react/no-deprecated": "error", // React 19 严格要求使用新 API
-  //   },
-  // },
+  // Override for React 19 app
+  {
+    files: ["apps/react19/**/*.{ts,tsx,js,jsx}"],
+    settings: {
+      react: {
+        version: "19.0",
+      },
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      // React 19 严格要求使用现代 API
+      "react/no-deprecated": "error",
+    },
+  },
 ];
