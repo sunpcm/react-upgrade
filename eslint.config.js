@@ -52,23 +52,24 @@ module.exports = [
     },
   },
 
-  // Override for React 18 apps (如果创建了)
-  // {
-  //   files: ["apps/react18-app/**/*.{ts,tsx,js,jsx}"],
-  //   settings: {
-  //     react: {
-  //       version: "18.0",
-  //     },
-  //   },
-  //   rules: {
-  //     "react/react-in-jsx-scope": "off",
-  //     "react/no-deprecated": "warn",
-  //   },
-  // },
+  // Override for React 18 app
+  {
+    files: ["apps/react18/**/*.{ts,tsx,js,jsx}"],
+    settings: {
+      react: {
+        version: "18.3",
+      },
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      // React 18 应该使用 createRoot
+      "react/no-deprecated": "warn",
+    },
+  },
 
   // Override for React 19 apps (如果创建了)
   // {
-  //   files: ["apps/react19-app/**/*.{ts,tsx,js,jsx}"],
+  //   files: ["apps/react19/**/*.{ts,tsx,js,jsx}"],
   //   settings: {
   //     react: {
   //       version: "19.0",
