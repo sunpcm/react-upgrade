@@ -1,7 +1,6 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const cfg = merge(common, {
@@ -41,8 +40,7 @@ const cfg = merge(common, {
     ],
   },
   plugins: [
-    // React Fast Refresh 插件
-    new ReactRefreshWebpackPlugin(),
+    // React 16.8 使用传统的 HMR，不支持 Fast Refresh
     // TypeScript 类型检查插件
     new ForkTsCheckerWebpackPlugin(),
   ],

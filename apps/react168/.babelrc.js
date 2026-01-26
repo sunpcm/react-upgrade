@@ -2,7 +2,7 @@ module.exports = function (api) {
   api.cache.using(() => process.env.NODE_ENV);
 
   const isDevelopment = process.env.NODE_ENV === "development";
-  const isProduction = process.env.NODE_ENV === "production";
+  // const isProduction = process.env.NODE_ENV === "production";
 
   return {
     presets: [
@@ -18,25 +18,23 @@ module.exports = function (api) {
       [
         "@babel/preset-react",
         {
-          runtime: "automatic",
+          // React 16.8 使用经典 JSX 转换
+          runtime: "classic",
           development: isDevelopment,
-          ...(isProduction && { removeProperties: { removeImport: true } }),
         },
       ],
       "@babel/preset-typescript",
     ],
     plugins: [
-      // ✅ React Fast Refresh 必须放在最前面
-      isDevelopment && "react-refresh/babel",
+      // ⚠️ React Fast Refresh 不支持 React 16.8，已移除
+      // React 16.8 使用传统的 HMR (Hot Module Replacement)
 
-      // ✅ transform-runtime 放在后面，并配置 skipHelperValidation
+      // ✅ transform-runtime
       [
         "@babel/plugin-transform-runtime",
         {
           helpers: true,
           regenerator: true,
-          // ⚠️ 关键配置：跳过辅助函数验证，避免与 react-refresh 冲突
-          skipHelperValidation: true,
         },
       ],
     ].filter(Boolean),

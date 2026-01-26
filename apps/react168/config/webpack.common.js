@@ -31,8 +31,8 @@ module.exports = {
             loader: "babel-loader",
             options: {
               // 🟢 关键修复：强制指定配置文件路径
-              // 告诉 Babel：无论编译哪里的文件，都用我应用根目录下的 .babelrc
-              configFile: path.resolve(__dirname, "../.babelrc"),
+              // 告诉 Babel：无论编译哪里的文件，都用我应用根目录下的 .babelrc.js
+              configFile: path.resolve(__dirname, "../.babelrc.js"),
             },
           },
         ],
@@ -76,7 +76,7 @@ module.exports = {
             __filename,
             path.resolve(__dirname, "./webpack.dev.js"),
             path.resolve(__dirname, "./webpack.prod.js"),
-            path.resolve(__dirname, "../.babelrc"),
+            path.resolve(__dirname, "../.babelrc.js"),
             path.resolve(__dirname, "../postcss.config.js"),
             path.resolve(__dirname, "../src/styles.css"),
           ],
