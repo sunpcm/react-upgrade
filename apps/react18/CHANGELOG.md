@@ -262,7 +262,7 @@ function SearchApp() {
 
 ```tsx
 // React 18 - 使用 useTransition 区分优先级
-import { useState, useTransition, startTransition } from "react";
+import { useState, useTransition } from "react";
 
 function SearchApp() {
   const [query, setQuery] = useState("");
@@ -631,6 +631,72 @@ function DynamicStyledComponent({ color, fontSize }) {
   return <div className={className}>动态样式组件</div>;
 }
 ```
+
+#### 为什么我们需要它？（性能瓶颈在哪里？）
+
+在 React 中，CSS-in-JS 库通常需要在组件运行时**动态生成 CSS 类名**，并把 `<style>` 标签插入到文档的 `<head>` 里。
+
+在 `useInsertionEffect` 出现之前，库作者基本只能在两个“都不太好”的时机里选一个：
+
+##### 1) 在 `useLayoutEffect` 中插入样式
+
+**流程：**
+
+1. React 计算 DOM
+2. 浏览器计算布局（layout）
+3. `useLayoutEffect` 运行
+4. 插入新的 CSS
+5. 浏览器被迫重新计算布局
+6. 绘制（paint）
+
+**后果：布局抖动（Layout Thrashing）**
+
+浏览器刚算好每个元素多宽多高，你突然塞进来一段 CSS 说“所有 `div` 都要变大”，浏览器只能再重算一遍——性能很差、很卡。
+
+---
+
+##### 2) 在 `useEffect` 中插入样式
+
+**流程：**
+
+1. 绘制（paint）
+2. `useEffect` 运行
+3. 插入 CSS
+4. 重新绘制
+
+**后果：样式闪烁（FOUC）**
+
+用户会先看到一个“没样式的丑页面”，然后样式突然出现。
+
+---
+
+#### React 18 的解决方案
+
+我们需要一个时间点：在 **“DOM 发生变化之前”** 就能把 `<style>` 塞进去。这样当 React 真正去更新 DOM，以及后续 `useLayoutEffect` 读取布局时，样式已经就位。
+
+这就是 `useInsertionEffect`。
+
+---
+
+#### 执行时机：Hook 的三兄弟
+
+为了理解它的位置，先看 React 更新 DOM 的流水线：
+
+1. **Render Phase**（组件函数执行，计算 Virtual DOM）
+2. **Commit Phase Begins**
+3. **🛑 `useInsertionEffect` 执行**（这里！趁 DOM 还没变，赶紧插入 style）
+4. **DOM Mutations**（React 真正修改 DOM 节点）
+5. **🛑 `useLayoutEffect` 执行**（此时读取 DOM 布局是安全的，样式已生效）
+6. **Browser Paint**（浏览器把像素画到屏幕上）
+7. **🛑 `useEffect` 执行**（异步，不阻塞渲染）
+
+**三个 Hook 的对比：**
+
+| Hook                 | 执行时机           | 用途               | 是否阻塞渲染 |
+| -------------------- | ------------------ | ------------------ | ------------ |
+| `useInsertionEffect` | DOM 变更前         | 插入全局样式       | ✅ 阻塞      |
+| `useLayoutEffect`    | DOM 变更后，绘制前 | 读取布局、同步 DOM | ✅ 阻塞      |
+| `useEffect`          | 绘制后             | 副作用、异步操作   | ❌ 不阻塞    |
 
 ---
 
