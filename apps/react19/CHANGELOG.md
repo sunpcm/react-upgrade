@@ -125,6 +125,10 @@ function ItemList({ items, onItemUpdate }) {
 
 #### React Compiler 工作原理示例
 
+- 静态分析：像 ESLint 一样理解你的代码语法和数据流向。
+- 自动插入缓存：把组件拆解成如果不依赖外部变化就不会重新执行的“块”。
+- 引用稳定性：保证只要原始数据没变，生成的对象、函数、JSX 节点的引用地址就永远不变
+
 ```tsx
 // 开发者编写的代码
 function ProductCard({ product, onAddToCart }) {
